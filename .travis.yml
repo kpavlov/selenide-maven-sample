@@ -1,4 +1,6 @@
 sudo: false
+addons:
+  firefox: "latest"
 language: java
 jdk:
   - oraclejdk8

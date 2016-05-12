@@ -1,5 +1,7 @@
 # Maven Selenide Tests
 
+[![Build Status](https://travis-ci.org/kpavlov/selenide-maven-sample.svg?branch=master)](https://travis-ci.org/kpavlov/selenide-maven-sample)
+
 Use maven 3.3+ and JDK 1.8 to run the tests
 Default maven goal is "clean test", default browser is "firefox".
 
