@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.kpavlov</groupId>
+    <artifactId>selenide-sample</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <selenium.hub.url>http://local.example.com:4444/wd/hub</selenium.hub.url>
+        <holdBrowserOpen>false</holdBrowserOpen>
+        <surefire.argLine>-Dbrowser=${browser} -Dselenide.holdBrowserOpen=${holdBrowserOpen}</surefire.argLine>
+    </properties>
+
+    <prerequisites>
+        <maven>3.3</maven>
+    </prerequisites>
+
+    <profiles>
+        <profile>
+            <id>firefox</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <browser>firefox</browser>
+            </properties>
+        </profile>
+        <profile>
+            <id>chrome</id>
+            <properties>
+                <browser>chrome</browser>
+            </properties>
+        </profile>
+        <profile>
+            <id>phantomjs</id>
+            <properties>
+                <browser>phantomjs</browser>
+            </properties>
+        </profile>
+        <profile>
+            <id>ie</id>
+            <properties>
+                <browser>ie</browser>
+            </properties>
+        </profile>
+        <profile>
+            <id>htmlunit</id>
+            <properties>
+                <browser>htmlunit</browser>
+            </properties>
+        </profile>
+        <profile>
+            <id>ci-server</id>
+            <properties>
+                <surefire.argLine>-Dremote=${selenium.hub.url} -Dbrowser=${browser}</surefire.argLine>
+            </properties>
+        </profile>
+        <profile>
+            <id>local</id>
+            <properties>
+                <holdBrowserOpen>true</holdBrowserOpen>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <defaultGoal>clean test</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <argLine>${surefire.argLine}</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+</project>
