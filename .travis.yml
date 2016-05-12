@@ -1,0 +1,8 @@
+sudo: false
+language: java
+jdk:
+  - oraclejdk8
+script:
+  - "mvn -Pphantomjs"
+  - "mvn -Pfirefox"
+  - "mvn -Phtmlunit"
