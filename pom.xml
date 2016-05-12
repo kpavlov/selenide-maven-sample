@@ -54,6 +54,14 @@
             <properties>
                 <browser>htmlunit</browser>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.seleniumhq.selenium</groupId>
+                    <artifactId>selenium-htmlunit-driver</artifactId>
+                    <version>LATEST</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <id>ci-server</id>
