@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kpavlov/selenide-maven-sample.svg?branch=master)](https://travis-ci.org/kpavlov/selenide-maven-sample)
 
-This is an example of how you can run [Selenium][selenium] tests with [Selenide][selenide] under maven. See [my blog post](https://blog.konstantinpavlov.net/2016/05/12/selenium-tests-with-maven-and-selenide/) with explainations. 
+This is an example of how you can run [Selenium][selenium] tests with [Selenide][selenide] under maven. See [my blog post](https://konstantinpavlov.net/blog/2016/05/12/selenium-tests-with-maven-and-selenide/?utm_source=github) with explainations. 
 
 Use maven 3.3+ and JDK 1.8 to run the tests
 Default maven goal is "clean test", default browser is "firefox".
