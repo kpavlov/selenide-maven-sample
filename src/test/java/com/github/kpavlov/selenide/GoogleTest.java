@@ -1,6 +1,5 @@
 package com.github.kpavlov.selenide;
 
-import org.junit.ClassRule;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Condition.text;

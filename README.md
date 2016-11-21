@@ -26,6 +26,34 @@ where browsers are:
 - phantomjs
 - ie
 
+### Testing with Chrome
+
+1. Download and install [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) to directory `${HOME}/bin`
+
+2. Run maven: `mvn test -Pchrome`
+
+You may override the chromedriver path by passing system property to maven:
+    
+    mvn test -chrome -Dwebdriver.gecko.driver=<path-to>/chromedriver
+
+### Testing with Firefox
+
+Download [geckodriver](https://github.com/mozilla/geckodriver/releases) and install it to `${HOME}/bin` 
+
+The Selenium client bindings will try to locate the geckodriver executable from the system path. But it may not work. So using system property `webdriver.gecko.driver` is the most stable solution. Original referene: [Firefox Marionette WebDriver](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver) 
+
+You may override the geckodriver path by passing system property to maven:
+    
+    mvn test -Pfirefox -Dwebdriver.gecko.driver=<path-to>/geckodriver
+
+## Testing with Safari
+
+1. Start Safari and select _'Allow Remote Automation'_ option in Safari's Develop menu. Otherwise you'll see the following message in logs:
+
+        "Could not create a session: You must enable the 'Allow Remote Automation' option in Safari's Develop menu to control"
+
+2. Run maven: `mvn test -Psafari`
+
 ## Leave browser open after test
 
 If selenide property `holdBrowserOpen` is `true`, browser window stays open after running tests.
